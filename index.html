@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<style>
+
+/* =====================================================
+   ROMANTIC COLOUR PALETTE
+===================================================== */
+
+:root {
+    --wine: #6D214F;
+    --rose: #D88A9A;
+    --blush: #F8DDE5;
+    --cream: #FFF8F3;
+    --gold: #D6A85F;
+    --dark: #321923;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Georgia",
+        "Times New Roman",
+        serif;
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+#opening {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #f5cbd7,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff8f3,
+            #f8dde5
+        );
+}
+
+
+/* =====================================================
+   SOFT LIGHT
+===================================================== */
+
+.light {
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    filter: blur(100px);
+
+    opacity: .45;
+}
+
+.light.one {
+
+    top: -150px;
+    left: -100px;
+}
+
+.light.two {
+
+    bottom: -150px;
+    right: -100px;
+}
+
+
+/* =====================================================
+   OPENING CONTENT
+===================================================== */
+
+.open-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    padding: 25px;
+}
+
+.open-content small {
+
+    display: block;
+
+    color: var(--wine);
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.open-content h1 {
+
+    font-size:
+        clamp(
+            42px,
+            10vw,
+            75px
+        );
+
+    color: var(--wine);
+
+    font-weight: normal;
+
+    margin-top: 30px;
+
+    font-style: italic;
+}
+
+
+.open-content h2 {
+
+    font-family:
+        "Arial",
+        sans-serif;
+
+    font-weight: normal;
+
+    color: #9b536c;
+
+    font-size:
+        clamp(
+            18px,
+            5vw,
+            25px
+        );
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   GIFT BOX
+===================================================== */
+
+.gift {
+
+    width: 155px;
+
+    height: 135px;
+
+    position: relative;
+
+    margin: 25px auto;
+
+    cursor: pointer;
+
+    animation:
+        gentleFloat
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Box */
+
+.box {
+
+    position: absolute;
+
+    width: 145px;
+
+    height: 100px;
+
+    bottom: 0;
+
+    left: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d315e,
+            #6D214F
+        );
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 15px 30px #6d214f35;
+}
+
+
+/* Lid */
+
+.lid {
+
+    position: absolute;
+
+    width: 165px;
+
+    height: 35px;
+
+    left: -5px;
+
+    top: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a64b72,
+            #7b2955
+        );
+
+    border-radius: 5px;
+
+    z-index: 3;
+
+    transition:
+        1s
+        cubic-bezier(
+            .68,
+            -0.55,
+            .27,
+            1.55
+        );
+}
+
+
+/* Gold ribbon */
+
+.ribbon {
+
+    position: absolute;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c69550,
+            #f1d18d,
+            #c69550
+        );
+
+    z-index: 4;
+}
+
+
+/* Vertical ribbon */
+
+.ribbon.vertical {
+
+    width: 23px;
+
+    height: 100%;
+
+    left: 61px;
+
+    top: 0;
+}
+
+
+/* Horizontal ribbon */
+
+.ribbon.horizontal {
+
+    width: 100%;
+
+    height: 18px;
+
+    left: 0;
+
+    top: 42px;
+}
+
+
+/* Bow */
+
+.bow {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 8;
+}
+
+
+.bow span {
+
+    position: absolute;
+
+    width: 45px;
+
+    height: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1d18d,
+            #c69550
+        );
+
+    border-radius: 50% 50% 10% 50%;
+}
+
+
+.bow span:first-child {
+
+    right: 8px;
+
+    transform:
+        rotate(25deg);
+}
+
+
+.bow span:last-child {
+
+    left: 8px;
+
+    transform:
+        rotate(-25deg)
+        scaleX(-1);
+}
+
+
+/* Gift opening */
+
+.gift.open .lid {
+
+    transform:
+        translateY(-90px)
+        rotate(-8deg);
+
+    opacity: 0;
+}
+
+
+.gift.open {
+
+    animation: none;
+}
+
+
+/* =====================================================
+   CLICK TEXT
+===================================================== */
+
+.tap {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    color: #9b536c;
+
+    font-size: 15px;
+
+    margin-top: 10px;
+
+    animation:
+        softPulse
+        1.8s
+        infinite;
+}
+
+
+/* =====================================================
+   BIRTHDAY SECTION
+===================================================== */
+
+#birthday {
+
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            #ffffff,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff8f3,
+            #f8dde5
+        );
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    padding: 55px 25px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .72
+        );
+
+    border:
+        1px solid
+        #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px
+        #6d214f20;
+
+    animation:
+        cardAppear
+        1.4s
+        ease;
+}
+
+
+/* =====================================================
+   DECORATIVE TOP
+===================================================== */
+
+.ornament {
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    letter-spacing: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   BIRTHDAY TITLE
+===================================================== */
+
+.cake {
+
+    font-size: 70px;
+
+    margin-bottom: 10px;
+
+    animation:
+        gentleBounce
+        2s
+        infinite;
+}
+
+
+.card h1 {
+
+    font-size:
+        clamp(
+            43px,
+            9vw,
+            75px
+        );
+
+    color: var(--wine);
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    margin-bottom: 12px;
+}
+
+
+.card h2 {
+
+    color: #9b536c;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            22px,
+            5vw,
+            34px
+        );
+
+    font-weight: normal;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.main-message {
+
+    max-width: 650px;
+
+    margin:
+        30px
+        auto
+        0;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: #563541;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 35px 0;
+}
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        var(--gold);
+}
+
+.divider span {
+
+    color: var(--gold);
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+.photos {
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.photo {
+
+    background:
+        #ffffff;
+
+    padding: 10px 10px 18px;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 15px 30px
+        #6d214f18;
+
+    opacity: 0;
+
+    transform:
+        translateY(40px)
+        rotate(-3deg);
+
+    animation:
+        photoAppear
+        1s
+        forwards;
+}
+
+
+.photo:nth-child(2) {
+
+    transform:
+        translateY(40px)
+        rotate(3deg);
+
+    animation-delay:
+        .35s;
+}
+
+
+.photo:nth-child(3) {
+
+    transform:
+        translateY(40px)
+        rotate(-2deg);
+
+    animation-delay:
+        .7s;
+}
+
+
+.photo:nth-child(4) {
+
+    transform:
+        translateY(40px)
+        rotate(2deg);
+
+    animation-delay:
+        1.05s;
+}
+
+
+.photo img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+.photo p {
+
+    font-family:
+        "Georgia",
+        serif;
+
+    color: #744254;
+
+    font-size: 15px;
+
+    margin-top: 13px;
+}
+
+
+/* =====================================================
+   LOVE LETTER
+===================================================== */
+
+.letter {
+
+    max-width: 700px;
+
+    margin:
+        55px
+        auto
+        0;
+
+    padding:
+        40px 30px;
+
+    background:
+        #fffaf7;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px
+        #6d214f18;
+
+    text-align: left;
+
+    position: relative;
+}
+
+
+.letter::before {
+
+    content: "♥";
+
+    position: absolute;
+
+    top: -17px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--wine);
+
+    color: white;
+
+    font-size: 15px;
+}
+
+
+.letter h3 {
+
+    text-align: center;
+
+    color: var(--wine);
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    margin-bottom: 25px;
+}
+
+
+.letter p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #563541;
+
+    margin-bottom: 15px;
+}
+
+
+.signature {
+
+    margin-top: 25px;
+
+    text-align: right;
+
+    color: var(--wine);
+
+    font-style: italic;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.final-message {
+
+    margin-top: 45px;
+
+    padding-top: 35px;
+
+    border-top:
+        1px solid
+        #d6a85f66;
+
+    color: var(--wine);
+
+    font-size: 22px;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-button {
+
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 18px;
+
+    width: 52px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        var(--wine);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    box-shadow:
+        0 7px 20px
+        #6d214f40;
+}
+
+
+/* =====================================================
+   FLOATING PETALS
+===================================================== */
+
+.petal {
+
+    position: fixed;
+
+    top: -40px;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    font-size: 20px;
+
+    animation:
+        fall
+        linear
+        forwards;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes gentleFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+@keyframes gentleBounce {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+
+@keyframes softPulse {
+
+    0%,100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.94);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes photoAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .open-content {
+        padding: 20px;
+    }
+
+    .gift {
+        transform:
+            scale(.9);
+    }
+
+    .card {
+        padding:
+            45px 17px;
+    }
+
+    .main-message {
+        font-size: 16px;
+    }
+
+    .letter {
+        padding:
+            35px 20px;
+    }
+
+    .letter p {
+        font-size: 16px;
+    }
+
+    .photo img {
+        height: 210px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
+
+<section id="opening">
+
+    <div class="light one"></div>
+    <div class="light two"></div>
+
+
+    <div class="open-content">
+
+        <small>
+            A little something made with love
+        </small>
+
+
+        <!-- GIFT -->
+
+        <div
+            class="gift"
+            id="gift"
+            onclick="openGift()"
+        >
+
+            <div class="lid"></div>
+
+            <div class="box">
+
+                <div
+                    class="ribbon vertical"
+                ></div>
+
+                <div
+                    class="ribbon horizontal"
+                ></div>
+
+            </div>
+
+
+            <div class="bow">
+
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+
+        <h1>
+            For My Jefff
+        </h1>
+
+
+        <h2>
+            Oru Kutty Surprise❤️
+        </h2>
+
+
+        <div class="tap">
+            Tap pannu ri vennamavaley
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIRTHDAY CARD
+===================================================== -->
+
+<section id="birthday">
+
+    <div class="card">
+
+
+        <div class="ornament">
+            ✦ ♥ ✦
+        </div>
+
+
+        <div class="cake">
+            🎂
+        </div>
+
+
+        <h1>
+            Happy Porandhanaaalll
+        </h1>
+
+
+        <h2>
+            Jepreee Chellakuttyyyy ❤️
+        </h2>
+
+
+        <div class="divider">
+            <span>♥</span>
+        </div>
+
+
+        <div class="main-message">
+
+            <p>
+                Veedu ketta theva kallu🪨
+           Unkitta enaku pudichadhu un pallu🫶🏻
+            </p>
+
+            <br>
+
+            <p>
+               Happy Birthday paapaa Happy Birthday;Hattu Papaaa Happy Birthday;Sugamaana Happy Birthday;Suttithanam iladhaaa Happy Birthday;Gettikaara Happy Birthday by Ramsankarrr
+            </p>
+
+            <br>
+
+            <p>
+          En Chellooo🫂❤️Epavum bathrama iru di🫶🏻
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PHOTOS
+        ================================================= -->
+
+        <div class="photos">
+
+
+            <div class="photo">
+
+                <img
+                    src="Image 1.jpg"
+                    alt="Memory 1"
+                >
+
+                <p>
+                    Idhu dhn namaloda 1st selfie❤️
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="Image 2.jpg"
+                    alt="Memory 2"
+                >
+
+                <p>
+                    Nee oru alagiii🫶🏻
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="Image 3.jpg"
+                    alt="Memory 3"
+                >
+
+                <p>
+                    😚
+                </p>
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="Image 4.jpg"
+                    alt="Memory 4"
+                >
+
+                <p>
+                    Ipdye ketti pudichutu jolly ah irukalam🫂❤️
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             LOVE LETTER
+        ================================================= -->
+
+        <div class="letter">
+
+            <h3>
+                Oru Kutty Kaadhal Kadidham
+            </h3>
+
+
+            <p>
+                Dear Paapsuuu,
+            </p>
+
+
+            <p>
+               Happy Birthday pondati ehhh🫶🏻enada ivn online la kadidham lam eludhraney nu nee nenaikalam...nenaikanum adhuku dhn eludhren🫂❤️
+            </p>
+
+
+            <p>
+             Enna visiyam na inaiku un porandhanaal...So sandhosama jolly ah iruuu edhadhu pona varsham paapu va hurt pani irundha ramu va manichruuu😚hurt pani irupen but venuney ilaaa elam kaadhal dhn sorrryyy🫂
+            </p>
+
+
+            <p>
+              Ena vitutu povama irundhadhuku romba romba nandriii😚Epavum en koodavey iru di 16 petru peru vaalvu vaalvom🏃🏻‍♂️Epavum vampire palla kaatitey iru...😚Overthink panni dark circles oda suthadha 24 vayasu aaitu poruppa iruu di chellamey💋
+            </p>
+
+
+            <p>
+              Apro mukkiyamana visiyam ena na bathrama iruuu enga ponalum paathu po di choclate uh...ramuuu lovesss youuu🫶🏻vera enna solla nu theriyavilai...idhu ramu style la oru online kadidham unaku pudikuma ilaya nu thrla pananum nu thonichu... Ummmmmmmaaahhhh❤️
+            </p>
+
+
+            <p>
+
+                Inoru mukkiyamana matter ena naaa...
+
+                <br><br>
+
+                <strong>
+                    Be happy with Ramu always. 🫶🏻❤️
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Happy Birthday once again,
+                my Chellakuttyyyy! 🎂
+
+            </p>
+
+
+            <div class="signature">
+
+                With lots of love,<br>
+
+                Yours Ramuuu❤️
+
+            </div>
+
+        </div>
+
+
+        <div class="final-message">
+
+            Here's to another beautiful
+            year of you. ✨
+
+            <br><br>
+
+            Happy Birthday,My Jefff❤️
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="music"
+    loop
+>
+
+    <source
+        src="birthday.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<button
+    class="music-button"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    🎵
+</button>
+
+
+
+<script>
+
+
+/* =====================================================
+   OPEN GIFT
+===================================================== */
+
+function openGift() {
+
+
+    const gift =
+        document.getElementById(
+            "gift"
+        );
+
+
+    const opening =
+        document.getElementById(
+            "opening"
+        );
+
+
+    const birthday =
+        document.getElementById(
+            "birthday"
+        );
+
+
+    /* Open gift */
+
+    gift.classList.add(
+        "open"
+    );
+
+
+    /* Start music */
+
+    const music =
+        document.getElementById(
+            "music"
+        );
+
+
+    music.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            document.getElementById(
+                "musicButton"
+            ).innerHTML = "🔊";
+
+        })
+        .catch(() => {
+
+            /*
+            If the browser blocks music,
+            she can press the music button.
+            */
+
+        });
+
+
+    /* Romantic petals */
+
+    createPetals();
+
+
+    /* Wait for gift animation */
+
+    setTimeout(() => {
+
+
+        opening.style.display =
+            "none";
+
+
+        birthday.style.display =
+            "flex";
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+
+    }, 900);
+
+}
+
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+let musicPlaying = false;
+
+
+function toggleMusic() {
+
+
+    const music =
+        document.getElementById(
+            "music"
+        );
+
+
+    const button =
+        document.getElementById(
+            "musicButton"
+        );
+
+
+    if (!musicPlaying) {
+
+
+        music.play();
+
+
+        musicPlaying = true;
+
+
+        button.innerHTML =
+            "🔊";
+
+    }
+
+    else {
+
+
+        music.pause();
+
+
+        musicPlaying = false;
+
+
+        button.innerHTML =
+            "🎵";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ROMANTIC PETALS
+===================================================== */
+
+function createPetals() {
+
+
+    const petals = [
+        "🌹",
+        "🌸",
+        "💕",
+        "❤️",
+        "✨",
+        "🤍"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 45;
+        i++
+    ) {
+
+
+        const petal =
+            document.createElement(
+                "div"
+            );
+
+
+        petal.className =
+            "petal";
+
+
+        petal.innerHTML =
+            petals[
+                Math.floor(
+                    Math.random()
+                    *
+                    petals.length
+                )
+            ];
+
+
+        petal.style.left =
+            Math.random()
+            * 100
+            + "vw";
+
+
+        petal.style.fontSize =
+            15
+            +
+            Math.random()
+            * 15
+            +
+            "px";
+
+
+        petal.style.animationDuration =
+            4
+            +
+            Math.random()
+            * 5
+            +
+            "s";
+
+
+        document.body.appendChild(
+            petal
+        );
+
+
+        setTimeout(
+            () => petal.remove(),
+            9000
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
